@@ -1,15 +1,19 @@
 from tkinter import *
 from tkinter import ttk
 
-HEIGHTBTN = 50
-WIDTHBTN = 68
+from calculator import *
+from calculator import WIDTHBTN, HEIGHTBTN
 
-class MainApp(Tk): #MainApp es en si una ventana, y le metemos Tk, del que va a heredar
-   def __init__(self): #este es nuestro constructor
-        Tk.__init__(self) #es el constructor de Tk, lo llamamos y le damos nuestra instancia
+class MainApp(Tk):
+    def __init__(self):
+        Tk.__init__(self)
         self.title('Calculadora')
-        self.geometry('{}x{}'.format(WIDTHBTN*4, HEIGHTBTN*4))
+        self.geometry("{}x{}".format(WIDTHBTN*4, HEIGHTBTN*6))
+
+        c = Calculator(self)
+        c.pack()
         
+
     def start(self):
         self.mainloop()
 
