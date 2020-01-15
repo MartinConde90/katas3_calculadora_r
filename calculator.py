@@ -72,6 +72,10 @@ class Selector(ttk.Frame):
 
 
 class Calculator(ttk.Frame):
+    op1 = None
+    operacion = None
+    op2 = None
+
     def __init__(self, parent):
         ttk.Frame.__init__(self, parent)
 
@@ -96,7 +100,7 @@ class Calculator(ttk.Frame):
         self.buttonX.grid(column=0, row=3)
         self.buttonL = CalcButton(self, text="L", command=lambda: self.pantalla.pinta('L'))
         self.buttonL.grid(column=1, row=3)
-        self.buttonPL = CalcButton(self, text="(", command=lambda: self.pantalla.pinta('('))
+        self.buttonPL = CalcButton(self, text="(", command=None)
         self.buttonPL.grid(column=2, row=3)
         self.buttonSub = CalcButton(self, text="-", command=None)
         self.buttonSub.grid(column=3, row=3)
@@ -105,13 +109,25 @@ class Calculator(ttk.Frame):
         self.buttonI.grid(column=0, row=4)
         self.buttonV = CalcButton(self, text="V", command=lambda: self.pantalla.pinta('V'))
         self.buttonV.grid(column=1, row=4)
-        self.buttonPR = CalcButton(self, text=")", command=lambda: self.pantalla.pinta(')'))
+        self.buttonPR = CalcButton(self, text=")", command=None)
         self.buttonPR.grid(column=2, row=4)
         self.buttonAdd = CalcButton(self, text="-", command=None)
         self.buttonAdd.grid(column=3, row=4)
+        self.buttonEqu = CalcButton(self, text="+", command=None)
+        self.buttonEqu.grid(column=3, row=4)
 
         self.buttonEqu = CalcButton(self, text="=", command=None, wbtn=2)
         self.buttonEqu.grid(column=2, row=5, columnspan=2)
 
         self.selector = Selector(self)
         self.selector.grid(column=0, row=5, columnspan=2)
+
+    def operar(self, operacion):
+        if operacion in ['+','-','/','x']
+            self.op1 = RomanNumber(self.pantalla.cadena)
+            self.operacion = operacion
+            self.pantalla.clear()
+        elif operacion == '=':
+            self.op2 = RomanNumber(self.pantalla.cadena)
+            ...procesar la operacion
+            resultado = self.op1 + self.op2
